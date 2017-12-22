@@ -5,13 +5,25 @@ from django.utils.translation import ugettext_lazy as _
 from cms.models import CMSPlugin
 from colorfield.fields import ColorField
 
+# align
 TOP = 0
 MIDDLE = 1
 BOTTOM = 2
 
+# anchor
+NORTH = 'center top'
+NORTH_EAST = 'right top'
+EAST = 'right center'
+SOUTH_EAST = 'right bottom'
+SOUTH = 'center bottom'
+SOUTH_WEST = 'left bottom'
+WEST = 'left center'
+NORTH_WEST = 'left top'
+MIDDLE = 'center center'
+
 
 class LasagnaPlugin(CMSPlugin):
-    """Lasagna container"""
+    '''Lasagna container'''
 
     name = models.CharField(
         _('name'), max_length=400, default='', blank=True
@@ -26,7 +38,7 @@ class LasagnaPlugin(CMSPlugin):
 
 
 class ColorLayerPlugin(CMSPlugin):
-    """Color layer"""
+    '''Color layer'''
 
     color = ColorField(
         _('color'), null=False,
@@ -41,7 +53,7 @@ class ColorLayerPlugin(CMSPlugin):
 
 
 class OpacityModifierPlugin(CMSPlugin):
-    """Sets the opacity of its children"""
+    '''Sets the opacity of its children'''
 
     opacity = models.PositiveSmallIntegerField(
         _('opacity (%)'),
@@ -59,7 +71,7 @@ class OpacityModifierPlugin(CMSPlugin):
 
 
 class VerticalAlignmentModifierPlugin(CMSPlugin):
-    """sets the vertical alignment of its children"""
+    '''sets the vertical alignment of its children'''
 
     ALIGN_LABELS = {
         TOP: _('top'),
@@ -83,3 +95,47 @@ class VerticalAlignmentModifierPlugin(CMSPlugin):
     class Meta:
         verbose_name = _('Vertical alignment modifier')
         verbose_name_plural = _('Vertical alignment modifiers')
+
+
+class ImageAnchorModifierPlugin(CMSPlugin):
+    '''aaa'''
+
+    ANCHOR_LABELS = {
+        NORTH: _('North'),
+        NORTH_EAST: _('North-east'),
+        EAST: _('East'),
+        SOUTH_EAST: _('South-east'),
+        SOUTH: _('South'),
+        SOUTH_WEST: _('South-west'),
+        WEST: _('West'),
+        NORTH_WEST: _('North-west'),
+        MIDDLE: _('Middle'),
+    }
+
+    ANCHOR_CHOICHES = (
+        (NORTH, ANCHOR_LABELS[NORTH]),
+        (NORTH_EAST, ANCHOR_LABELS[NORTH_EAST]),
+        (EAST, ANCHOR_LABELS[EAST]),
+        (SOUTH_EAST, ANCHOR_LABELS[SOUTH_EAST]),
+        (SOUTH, ANCHOR_LABELS[SOUTH]),
+        (SOUTH_WEST, ANCHOR_LABELS[SOUTH_WEST]),
+        (WEST, ANCHOR_LABELS[WEST]),
+        (NORTH_WEST, ANCHOR_LABELS[NORTH_WEST]),
+        (MIDDLE, ANCHOR_LABELS[MIDDLE]),
+    )
+
+    anchor_point = models.CharField(
+        _('anchor point'),
+        max_length=15,
+        choices=ANCHOR_CHOICHES,
+        default='', blank=True
+    )
+
+    def __str__(self):
+        if self.anchor_point:
+            return self.ANCHOR_LABELS[self.anchor_point]
+        return None
+
+    class Meta:
+        verbose_name = _('Image anchor modifier')
+        verbose_name_plural = _('Image anchor modifiers')
