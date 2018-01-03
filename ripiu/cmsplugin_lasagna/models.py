@@ -26,7 +26,7 @@ SOUTH = 'center bottom'
 SOUTH_WEST = 'left bottom'
 WEST = 'left center'
 NORTH_WEST = 'left top'
-MIDDLE = 'center center'
+CENTER = 'center center'
 
 
 class LasagnaPlugin(CMSPlugin):
@@ -116,7 +116,7 @@ class ImageAnchorModifierPlugin(CMSPlugin):
         SOUTH_WEST: _('South-west'),
         WEST: _('West'),
         NORTH_WEST: _('North-west'),
-        MIDDLE: _('Middle'),
+        CENTER: _('Middle'),
     }
 
     ANCHOR_CHOICHES = (
@@ -128,7 +128,7 @@ class ImageAnchorModifierPlugin(CMSPlugin):
         (SOUTH_WEST, ANCHOR_LABELS[SOUTH_WEST]),
         (WEST, ANCHOR_LABELS[WEST]),
         (NORTH_WEST, ANCHOR_LABELS[NORTH_WEST]),
-        (MIDDLE, ANCHOR_LABELS[MIDDLE]),
+        (CENTER, ANCHOR_LABELS[CENTER]),
     )
 
     FIT_LABELS = {
@@ -151,7 +151,7 @@ class ImageAnchorModifierPlugin(CMSPlugin):
         _('anchor point'),
         max_length=15,
         choices=ANCHOR_CHOICHES,
-        default=MIDDLE, blank=False
+        default=CENTER, blank=False
     )
 
     object_fit = models.CharField(
