@@ -10,6 +10,13 @@ TOP = 0
 MIDDLE = 1
 BOTTOM = 2
 
+# fit
+FILL = 'fill'
+CONTAIN = 'contain'
+COVER = 'cover'
+NONE = 'none'
+SCALE_DOWN = 'scale-down'
+
 # anchor
 NORTH = 'center top'
 NORTH_EAST = 'right top'
@@ -98,7 +105,7 @@ class VerticalAlignmentModifierPlugin(CMSPlugin):
 
 
 class ImageAnchorModifierPlugin(CMSPlugin):
-    '''aaa'''
+    '''fixes the anchor of an image'''
 
     ANCHOR_LABELS = {
         NORTH: _('North'),
@@ -124,16 +131,39 @@ class ImageAnchorModifierPlugin(CMSPlugin):
         (MIDDLE, ANCHOR_LABELS[MIDDLE]),
     )
 
+    FIT_LABELS = {
+        FILL: _('Fill the container'),
+        CONTAIN: _('Fit into the container'),
+        COVER: _('Fill the container and maintain the aspect ratio'),
+        NONE: _("Don't resize"),
+        SCALE_DOWN: _('Scale down to fit into the container'),
+    }
+
+    FIT_CHOICES = (
+        (FILL, FIT_LABELS[FILL]),
+        (CONTAIN, FIT_LABELS[CONTAIN]),
+        (COVER, FIT_LABELS[COVER]),
+        (NONE, FIT_LABELS[NONE]),
+        (SCALE_DOWN, FIT_LABELS[SCALE_DOWN]),
+    )
+
     anchor_point = models.CharField(
         _('anchor point'),
         max_length=15,
         choices=ANCHOR_CHOICHES,
-        default='', blank=True
+        default=MIDDLE, blank=False
+    )
+
+    object_fit = models.CharField(
+        _('resize'),
+        max_length=10,
+        choices=FIT_CHOICES,
+        default=COVER, blank=False
     )
 
     def __str__(self):
         if self.anchor_point:
-            return self.ANCHOR_LABELS[self.anchor_point]
+            return str(self.ANCHOR_LABELS[self.anchor_point])
         return None
 
     class Meta:

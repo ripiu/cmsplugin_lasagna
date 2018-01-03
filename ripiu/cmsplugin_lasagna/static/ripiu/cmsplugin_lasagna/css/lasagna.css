@@ -5,7 +5,8 @@
 
 .ripiu.lasagna > *,
 .ripiu.lasagna .modifier,
-.ripiu.lasagna .opacity.modifier > * {
+.ripiu.lasagna .opacity.modifier > *,
+.ripiu.lasagna .anchor.modifier > * {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -22,4 +23,46 @@
 .ripiu.lasagna .valign.modifier {
   display: flex;
   flex-direction: column;
+}
+
+.ripiu.lasagna .anchor.modifier > * {
+  display: block;
+  /*object-fit: cover;*/
+  object-fit: none;
+}
+
+.ripiu.lasagna .anchor.modifier.center.top > * {
+  object-position: center top;
+}
+
+.ripiu.lasagna .anchor.modifier.right.top > * {
+  object-position: right top;
+}
+
+.ripiu.lasagna .anchor.modifier.right.center > * {
+  object-position: right center;
+}
+
+.ripiu.lasagna .anchor.modifier.right.bottom > * {
+  object-position: right bottom;
+}
+
+.ripiu.lasagna .anchor.modifier.center.bottom > * {
+  object-position: center bottom;
+}
+
+.ripiu.lasagna .anchor.modifier.left.bottom > * {
+  object-position: left bottom;
+}
+
+.ripiu.lasagna .anchor.modifier.left.center > * {
+  object-position: left center;
+}
+
+.ripiu.lasagna .anchor.modifier.left.top > * {
+  object-position: left top;
+}
+
+.ripiu.lasagna .anchor.modifier.middle > * {
+  object-position: center center;
 }

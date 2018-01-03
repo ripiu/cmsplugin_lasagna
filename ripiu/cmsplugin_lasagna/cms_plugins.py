@@ -5,8 +5,8 @@ from cms.plugin_pool import plugin_pool
 
 from . import __version__
 from .models import (
-    BOTTOM, MIDDLE, TOP, ColorLayerPlugin, LasagnaPlugin,
-    OpacityModifierPlugin, VerticalAlignmentModifierPlugin
+    BOTTOM, MIDDLE, TOP, ColorLayerPlugin, ImageAnchorModifierPlugin,
+    LasagnaPlugin, OpacityModifierPlugin, VerticalAlignmentModifierPlugin
 )
 
 
@@ -21,6 +21,7 @@ class LasagnaPluginPublisher(CMSPluginBase):
         'TextPlugin',
         'FilerImagePlugin',
         'ColorLayerPluginPublisher',
+        'ImageAnchorModifierPluginPublisher',
         'OpacityModifierPluginPublisher',
         'VerticalAlignmentModifierPluginPublisher',
     ]
@@ -117,5 +118,35 @@ class VerticalAlignmentModifierPluginPublisher(CMSPluginBase):
             'instance': instance,
             'placeholder': placeholder,
             'valign': self.ALIGN_CHOICES[instance.alignment],
+        })
+        return context
+
+
+@plugin_pool.register_plugin
+class ImageAnchorModifierPluginPublisher(CMSPluginBase):
+    model = ImageAnchorModifierPlugin
+    name = _('Image anchor modifier')
+    module = "Ri+"
+    render_template = 'ripiu/cmsplugin_lasagna/anchor.html'
+    allow_children = True
+    child_classes = [
+        'FilerImagePlugin',
+        'FilerSvgImagePlugin'
+    ]
+    require_parent = True
+    parent_classes = [
+        'LasagnaPluginPublisher',
+        'OpacityModifierPluginPublisher',
+        'VerticalAlignmentModifierPluginPublisher',
+    ]
+
+    def render(self, context, instance, placeholder):
+        context = super(ImageAnchorModifierPluginPublisher, self).render(
+            context, instance, placeholder
+        )
+        context.update({
+            'instance': instance,
+            'placeholder': placeholder,
+            'anchor': instance.anchor_point,
         })
         return context
