@@ -66,3 +66,23 @@
 .ripiu.lasagna .anchor.modifier.middle > * {
   object-position: center center;
 }
+
+.ripiu.lasagna .anchor.modifier.fill > * {
+  object-fit: fill;
+}
+
+.ripiu.lasagna .anchor.modifier.contain > * {
+  object-fit: contain;
+}
+
+.ripiu.lasagna .anchor.modifier.cover > * {
+  object-fit: cover;
+}
+
+.ripiu.lasagna .anchor.modifier.none > * {
+  object-fit: none;
+}
+
+.ripiu.lasagna .anchor.modifier.scale-down > * {
+  object-fit: scale-down;
+}

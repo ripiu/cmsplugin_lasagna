@@ -148,5 +148,6 @@ class ImageAnchorModifierPluginPublisher(CMSPluginBase):
             'instance': instance,
             'placeholder': placeholder,
             'anchor': instance.anchor_point,
+            'fit': instance.object_fit,
         })
         return context

@@ -1,5 +1,5 @@
 {% load cms_tags %}
-<div class="anchor modifier {{ anchor }}">
+<div class="anchor modifier {{ anchor }} {{ fit }}">
   {% for plugin in instance.child_plugin_instances %}
     {% render_plugin plugin %}
   {% endfor %}
