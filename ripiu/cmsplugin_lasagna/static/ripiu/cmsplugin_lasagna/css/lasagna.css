@@ -6,7 +6,7 @@
 .ripiu.lasagna > *,
 .ripiu.lasagna .modifier,
 .ripiu.lasagna .opacity.modifier > *,
-.ripiu.lasagna .anchor.modifier > * {
+.ripiu.lasagna .anchor.modifier img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -25,64 +25,62 @@
   flex-direction: column;
 }
 
-.ripiu.lasagna .anchor.modifier > * {
+.ripiu.lasagna .anchor.modifier img {
   display: block;
-  /*object-fit: cover;*/
-  object-fit: none;
 }
 
-.ripiu.lasagna .anchor.modifier.center.top > * {
+.ripiu.lasagna .anchor.modifier.center.top img {
   object-position: center top;
 }
 
-.ripiu.lasagna .anchor.modifier.right.top > * {
+.ripiu.lasagna .anchor.modifier.right.top img {
   object-position: right top;
 }
 
-.ripiu.lasagna .anchor.modifier.right.center > * {
+.ripiu.lasagna .anchor.modifier.right.center img {
   object-position: right center;
 }
 
-.ripiu.lasagna .anchor.modifier.right.bottom > * {
+.ripiu.lasagna .anchor.modifier.right.bottom img {
   object-position: right bottom;
 }
 
-.ripiu.lasagna .anchor.modifier.center.bottom > * {
+.ripiu.lasagna .anchor.modifier.center.bottom img {
   object-position: center bottom;
 }
 
-.ripiu.lasagna .anchor.modifier.left.bottom > * {
+.ripiu.lasagna .anchor.modifier.left.bottom img {
   object-position: left bottom;
 }
 
-.ripiu.lasagna .anchor.modifier.left.center > * {
+.ripiu.lasagna .anchor.modifier.left.center img {
   object-position: left center;
 }
 
-.ripiu.lasagna .anchor.modifier.left.top > * {
+.ripiu.lasagna .anchor.modifier.left.top img {
   object-position: left top;
 }
 
-.ripiu.lasagna .anchor.modifier.middle > * {
+.ripiu.lasagna .anchor.modifier.middle img {
   object-position: center center;
 }
 
-.ripiu.lasagna .anchor.modifier.fill > * {
+.ripiu.lasagna .anchor.modifier.fill img {
   object-fit: fill;
 }
 
-.ripiu.lasagna .anchor.modifier.contain > * {
+.ripiu.lasagna .anchor.modifier.contain img {
   object-fit: contain;
 }
 
-.ripiu.lasagna .anchor.modifier.cover > * {
+.ripiu.lasagna .anchor.modifier.cover img {
   object-fit: cover;
 }
 
-.ripiu.lasagna .anchor.modifier.none > * {
+.ripiu.lasagna .anchor.modifier.none img {
   object-fit: none;
 }
 
-.ripiu.lasagna .anchor.modifier.scale-down > * {
+.ripiu.lasagna .anchor.modifier.scale-down img {
   object-fit: scale-down;
 }
