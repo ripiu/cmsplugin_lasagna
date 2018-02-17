@@ -5,7 +5,7 @@ from ripiu.cmsplugin_lasagna import __version__
 setup(
     name='ripiu.cmsplugin_lasagna',
     version=__version__,
-    url='https://github.com/ripiu/ripiu.cmsplugin_lasagna',
+    url='https://github.com/ripiu/cmsplugin_lasagna',
     license='BSD-new',
     description='Lasagna',
     long_description=open('README.rst').read(),
