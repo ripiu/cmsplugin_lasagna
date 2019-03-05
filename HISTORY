@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.1.5 (Unreleased)
+------------------
+* Added support for djangocms-picture
+
 0.1.4 (2018-01-02)
 ------------------
 

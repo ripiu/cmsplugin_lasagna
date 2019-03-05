@@ -1,6 +1,5 @@
-from setuptools import setup
-
 from ripiu.cmsplugin_lasagna import __version__
+from setuptools import setup
 
 setup(
     name='ripiu.cmsplugin_lasagna',
@@ -25,9 +24,9 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires=[
-        'Django >= 1.8',
-        'django-cms >= 3.1',
-        'django-sekizai >= 0.4.2',
+        'Django>=1.11',
+        'django-cms>=3.5',
+        'django-sekizai>=0.4.2',
         'django-colorfield>=0.1.14,<0.2.0',
     ],
     # ripiu is an implicit namespace package, so I need python>=3.3

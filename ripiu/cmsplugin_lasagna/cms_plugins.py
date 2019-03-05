@@ -1,12 +1,12 @@
-from django.utils.translation import ugettext_lazy as _
-
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
+
+from django.utils.translation import ugettext_lazy as _
 
 from . import __version__
 from .models import (
     BOTTOM, MIDDLE, TOP, ColorLayerPlugin, ImageAnchorModifierPlugin,
-    LasagnaPlugin, OpacityModifierPlugin, VerticalAlignmentModifierPlugin
+    LasagnaPlugin, OpacityModifierPlugin, VerticalAlignmentModifierPlugin,
 )
 
 
@@ -20,6 +20,7 @@ class LasagnaPluginPublisher(CMSPluginBase):
     child_classes = [
         'TextPlugin',
         'FilerImagePlugin',
+        'PicturePlugin',
         'ColorLayerPluginPublisher',
         'ImageAnchorModifierPluginPublisher',
         'OpacityModifierPluginPublisher',
@@ -131,6 +132,7 @@ class ImageAnchorModifierPluginPublisher(CMSPluginBase):
     allow_children = True
     child_classes = [
         'FilerImagePlugin',
+        'PicturePlugin',
         'FilerSvgImagePlugin'
     ]
     require_parent = True

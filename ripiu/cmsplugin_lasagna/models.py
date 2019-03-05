@@ -1,9 +1,9 @@
-from django.db import models
-from django.core.validators import MaxValueValidator
-from django.utils.translation import ugettext_lazy as _
-
 from cms.models import CMSPlugin
 from colorfield.fields import ColorField
+
+from django.core.validators import MaxValueValidator
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 # align
 TOP = 0
