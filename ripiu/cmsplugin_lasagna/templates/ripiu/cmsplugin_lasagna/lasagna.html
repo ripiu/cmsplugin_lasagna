@@ -1,4 +1,4 @@
-{% load cms_tags staticfiles sekizai_tags %}
+{% load cms_tags static sekizai_tags %}
 {% addtoblock "css" %}<link rel="stylesheet" href="{% static "ripiu/cmsplugin_lasagna/css/lasagna.css" %}?v={{ version }}">{% endaddtoblock %}
 <div class="ripiu lasagna">
   {% for plugin in instance.child_plugin_instances %}
